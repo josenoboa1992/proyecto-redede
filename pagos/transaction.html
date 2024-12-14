@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReddePay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+    <button class="header__icon" id="menuButton">☰</button>
+    <img src="img/logo_name.png" alt="ReddePay" class="header__logo">
+    <button class="header__icon"><img src="img/icons/scan-qr-code.svg" title="code-qr"/></button>
+</header>
+
+<nav class="menu" id="menu">
+    <div class="menu__header">
+        <img src="img/logo_name.png" title="logo"/>
+    </div>
+    <div class="menu__content">
+        <div class="menu__content--principal">
+        <div class="menu__item--close"><img src="img/icons/log-out.svg" alt="close">Cerrar Sesión</div>
+
+        </div>
+        <div class="menu__content--secondary">
+            <div><img src="img/icons/move-left.svg" alt="move-left"></div>
+        </div>
+    </div>
+</nav>
+<div class="overlay" id="overlay"></div>
+
+<div class="filters">
+    <div class="filters__date-range">
+        <div class="filters__date-wrapper">
+            <input type="date" class="filters__date-input" id="fromDate" placeholder="Desde">
+            <span class="filters__date-label">Desde</span>
+            <button class="filters__calendar-icon"><img src="img/icons/calendar.svg" title="calendar"/></button>
+        </div>
+        <div class="filters__date-wrapper">
+            <input type="date" class="filters__date-input" id="toDate" placeholder="Hasta">
+            <span class="filters__date-label">Hasta</span>
+            <button class="filters__calendar-icon"><img src="img/icons/calendar.svg" title="calendar"/></button>
+        </div>
+    </div>
+</div>
+<main class="transactions" id="transactions">
+    <!-- Transactions will be populated by JavaScript -->
+</main>
+
+<script src="javascript/script.js"></script>
+</body>
+</html>

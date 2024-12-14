@@ -1,0 +1,291 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(180deg, #ccc 0%, #cccccc 100%);
+    min-height: 100vh;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* BEM Components */
+.header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header__logo {
+    height: 24px;
+    width: auto;
+}
+
+.header__actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.header__icon {
+    color: #f10000;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header__icon img{
+    width: 24px;
+    height: 30px;
+}
+
+.filters {
+    padding: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+}
+
+.filters__date-range {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.filters__date-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #FFF;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(10px);
+    width: calc(50% - 0.5rem);
+}
+
+.filters__date-label {
+    font-size: 0.75rem;
+    color: #000000;
+    position: absolute;
+    left: 1rem;
+    top: 0.25rem;
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.filters__date-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #000000;
+    font-size: 0.875rem;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Hide default calendar icon */
+.filters__date-input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.filters__date-input::-webkit-inner-spin-button,
+.filters__date-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.filters__date-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+.filters__date-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.filters__date-input:focus + .filters__date-label,
+.filters__date-input:not(:placeholder-shown) + .filters__date-label {
+    top: 0;
+    font-size: 0.75rem;
+}
+
+.filters__calendar-icon {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 0.5rem;
+}
+
+.filters__chips {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.filters__chip {
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    color: #fff;
+}
+
+.transactions {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.transaction {
+    background: #fff;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.transaction:active {
+    transform: scale(0.98);
+}
+
+.transaction__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.transaction__title {
+    font-weight: 500;
+    color: #ff4444;
+}
+
+.transaction__status {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.transaction__details {
+    text-align: right;
+    display: flex;
+}
+
+.transaction__amount {
+    font-weight: 500;
+}
+
+.transaction__date {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+.transaction__arrow {
+    margin-left: 1rem;
+    color: #ff4b4b;
+    font-size: 1.5rem;
+}
+
+/* Sliding Menu */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -80%;
+    width: 80%;
+    height: 100vh;
+    background: #fff;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.menu--open {
+    transform: translateX(100%);
+}
+
+.menu__header {
+    padding: 1rem;
+    background: #fff;
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu__content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+}
+
+.menu__item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    color: #000;
+}
+
+.menu__item--close {
+    color: red;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 999;
+}
+
+.overlay--visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 375px) {
+    .header {
+        padding: 0.75rem;
+    }
+
+    .transactions {
+        padding: 0.75rem;
+    }
+
+    .transaction {
+        padding: 0.75rem;
+    }
+
+    .filters__date-wrapper {
+        width: 100%;
+    }
+}
