@@ -23,14 +23,13 @@ const transactions = [
     { id: 2, title: 'Venta 2', status: 'En Proceso', amount: 962000.00, date: '2021-05-01' },
     { id: 3, title: 'Venta 3', status: 'En Proceso', amount: 963000.00, date: '2021-05-01' },
     { id: 4, title: 'Venta 4', status: 'En Proceso', amount: 964000.00, date: '2021-05-01' },
-    { id: 4, title: 'Venta 4', status: 'En Proceso', amount: 964000.00, date: '2021-05-01' },
-    { id: 4, title: 'Venta 4', status: 'En Proceso', amount: 964000.00, date: '2021-05-01' },
-    { id: 4, title: 'Venta 4', status: 'En Proceso', amount: 964000.00, date: '2021-05-01' },
-    { id: 4, title: 'Venta 4', status: 'En Proceso', amount: 964000.00, date: '2021-05-01' },
-    { id: 4, title: 'Venta 4', status: 'En Proceso', amount: 964000.00, date: '2021-05-01' },
+    { id: 5, title: 'Venta 5', status: 'En Proceso', amount: 965000.00, date: '2021-05-01' },
+    { id: 6, title: 'Venta 6', status: 'En Proceso', amount: 966000.00, date: '2021-05-01' },
+    { id: 7, title: 'Venta 7', status: 'En Proceso', amount: 967000.00, date: '2021-05-01' },
+    { id: 8, title: 'Venta 8', status: 'En Proceso', amount: 968000.00, date: '2021-05-01' },
+    { id: 9, title: 'Venta 9', status: 'En Proceso', amount: 969000.00, date: '2021-05-01' },
 ];
 
-// Format currency
 function formatCurrency(amount) {
     return new Intl.NumberFormat('pt-BR', {
         style: 'currency',
@@ -38,7 +37,6 @@ function formatCurrency(amount) {
     }).format(amount);
 }
 
-// Format date
 function formatDate(dateString) {
     return new Date(dateString).toLocaleDateString('es-ES', {
         day: '2-digit',
@@ -47,42 +45,67 @@ function formatDate(dateString) {
     });
 }
 
-// Render transactions
-function renderTransactions() {
+function renderTransactions(transactionsToRender = transactions) {
     const transactionsContainer = document.getElementById('transactions');
-    transactionsContainer.innerHTML = transactions.map(transaction => `
+    transactionsContainer.innerHTML = transactionsToRender.map(transaction => `
         <article class="transaction">
             <div class="transaction__info">
                 <p class="transaction__title">${transaction.title}</p>
                 <p class="transaction__status">${transaction.status}</p>
             </div>
             <div class="transaction__details">
-            <div class="transaction__details--info">
-                <p class="transaction__amount">${formatCurrency(transaction.amount)}</p>
-                <p class="transaction__date">${formatDate(transaction.date)}</p>
-             </div>
-             <div class="transaction__details--arrow">
-                <span class="transaction__arrow">›</span>
+                <div class="transaction__details--info">
+                    <p class="transaction__amount">${formatCurrency(transaction.amount)}</p>
+                    <p class="transaction__date">${formatDate(transaction.date)}</p>
+                </div>
+                <div class="transaction__details--arrow">
+                    <span class="transaction__arrow">›</span>
                 </div>
             </div>
-           
         </article>
     `).join('');
 }
 
-// Initialize
+function renderSkeletonLoader() {
+    const transactionsContainer = document.getElementById('transactions');
+    const skeletonHTML = Array(5).fill().map(() => `
+        <article class="transaction skeleton">
+            <div class="transaction__info">
+                <p class="transaction__title"></p>
+                <p class="transaction__status"></p>
+            </div>
+            <div class="transaction__details">
+                <div class="transaction__details--info">
+                    <p class="transaction__amount"></p>
+                    <p class="transaction__date"></p>
+                </div>
+                <div class="transaction__details--arrow">
+                    <span class="transaction__arrow"></span>
+                </div>
+            </div>
+        </article>
+    `).join('');
+    transactionsContainer.innerHTML = skeletonHTML;
+}
+
 renderTransactions();
 
-// Add click handlers to transactions
 document.querySelectorAll('.transaction').forEach(transaction => {
     transaction.addEventListener('click', () => {
         console.log('Transaction clicked:', transaction.querySelector('.transaction__title').textContent);
     });
 });
 
-// Date range functionality
 const fromDateInput = document.getElementById('fromDate');
 const toDateInput = document.getElementById('toDate');
+
+function simulateSearch() {
+    renderSkeletonLoader();
+    setTimeout(() => {
+        const filteredTransactions = transactions.filter(() => Math.random() > 0.5);
+        renderTransactions(filteredTransactions);
+    }, 2000);
+}
 
 function updateDateRange() {
     const fromDate = fromDateInput.value;
@@ -102,28 +125,24 @@ function updateDateRange() {
 
     if (fromDate && toDate) {
         console.log('Date range updated:', formatDate(fromDate), 'to', formatDate(toDate));
-        // Here you would typically filter the transactions based on the new date range
-        // For this example, we'll just log the new range
+        simulateSearch();
     }
 }
 
 fromDateInput.addEventListener('change', updateDateRange);
 toDateInput.addEventListener('change', updateDateRange);
 
-// Calendar icon click handler
 document.querySelectorAll('.filters__calendar-icon').forEach(icon => {
     icon.addEventListener('click', () => {
         icon.previousElementSibling.previousElementSibling.showPicker();
     });
 });
 
-// Set initial date range (last 30 days)
 const today = new Date();
 const thirtyDaysAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
 
 fromDateInput.valueAsDate = thirtyDaysAgo;
 toDateInput.valueAsDate = today;
 
-// Initialize date range
 updateDateRange();
 

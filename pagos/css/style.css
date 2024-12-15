@@ -289,3 +289,55 @@ body {
         width: 100%;
     }
 }
+
+
+/* Add this to your existing CSS */
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton .transaction__title,
+.skeleton .transaction__status,
+.skeleton .transaction__amount,
+.skeleton .transaction__date,
+.skeleton .transaction__arrow {
+    background-color: #e0e0e0;
+    color: transparent;
+    border-radius: 4px;
+}
+
+.skeleton .transaction__title {
+    width: 60%;
+    height: 20px;
+}
+
+.skeleton .transaction__status {
+    width: 40%;
+    height: 16px;
+}
+
+.skeleton .transaction__amount {
+    width: 80px;
+    height: 20px;
+}
+
+.skeleton .transaction__date {
+    width: 60px;
+    height: 16px;
+}
+
+.skeleton .transaction__arrow {
+    width: 20px;
+    height: 20px;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: #e0e0e0;
+    }
+    100% {
+        background-color: #f0f0f0;
+    }
+}
+
