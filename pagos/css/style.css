@@ -318,7 +318,7 @@ a {
 }
 
 
-/* Add this to your existing CSS */
+/* skeletor */
 
 .skeleton {
     animation: skeleton-loading 1s linear infinite alternate;
@@ -447,7 +447,7 @@ body {
 }
 
 .login__submit {
-    background-color: #ff8ba7;
+    background-color: var(--primary-color);
     color: white;
     padding: 0.75rem;
     border: none;
