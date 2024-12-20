@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar ventas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+<a href="./transaction.html"> <button class="sale__back-button">←</button></a>
+<header class="sale__header">
+
+    <h1 class="sale__title">Realizar ventas</h1>
+</header>
+<div class="sales-form">
+    <h1 class="sales-form__title">Detalle de venta</h1>
+
+    <div class="sales-form__group">
+        <label class="sales-form__label" for="amount">Monto</label>
+        <div class="sales-form__input-wrapper">
+            <span class="sales-form__currency">$</span>
+            <input type="number"
+                   class="sales-form__input"
+                   id="amount"
+                   placeholder="0.00"
+                   step="0.01"
+                   min="0"
+                   required>
+        </div>
+    </div>
+
+    <div class="sales-form__group">
+        <label class="sales-form__label" for="description">Descripción</label>
+        <textarea class="sales-form__textarea"
+                  id="description"
+                  rows="4"
+                  placeholder="Ingrese los detalles de la venta"
+                  required></textarea>
+    </div>
+
+    <button class="sales-form__button sales-form__button--disabled" id="submitButton" disabled>
+        Continuar
+    </button>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const amountInput = document.getElementById('amount');
+        const descriptionInput = document.getElementById('description');
+        const submitButton = document.getElementById('submitButton');
+
+        function validateForm() {
+            const isAmountValid = amountInput.value && parseFloat(amountInput.value) > 0;
+            const isDescriptionValid = descriptionInput.value.trim().length > 0;
+
+            if (isAmountValid && isDescriptionValid) {
+                submitButton.disabled = false;
+                submitButton.classList.remove('sales-form__button--disabled');
+            } else {
+                submitButton.disabled = true;
+                submitButton.classList.add('sales-form__button--disabled');
+            }
+        }
+
+        // Agregar eventos de escucha para validación en tiempo real
+        amountInput.addEventListener('input', validateForm);
+        descriptionInput.addEventListener('input', validateForm);
+
+        // Validación inicial
+        validateForm();
+
+        // Redirigir al hacer clic en "Continuar"
+        submitButton.addEventListener('click', function() {
+            window.location.href = 'code-qr.html';
+        });
+    });
+</script>
+</body>
+</html>

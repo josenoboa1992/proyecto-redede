@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código QR de Ejemplo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+<a href="./sale.html"> <button class="sale__back-button">←</button></a>
+<header class="sale__header">
+
+    <h1 class="sale__title">Realizar ventas</h1>
+</header>
+<div class="qr-display">
+    <div class="qr-display__container">
+        <h1 class="qr-display__title">Escanear código</h1>
+            <div class="qr-display__content">
+                <div class="qr-display__code" id="qrcode"></div>
+            </div>
+        <p class="qr-display__help">Escanee este código QR</p>
+
+        <button class="qr-display__button" id="continue-btn">
+            Continuar
+        </button>
+    </div>
+</div>
+
+<!-- Incluir la librería QRCode.js -->
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+<script>
+    const submitButton=document.querySelector('#continue-btn')
+    document.addEventListener('DOMContentLoaded', function() {
+        // Crear un código QR con datos de ejemplo
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "https://ejemplo.com/producto/123",
+            width: 256,
+            height: 256,
+            colorDark : "#2D3748",
+            colorLight : "#FFFFFF",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+
+        // Manejar el botón continuar
+        document.getElementById('continue-btn').addEventListener('click', function() {
+            console.log('Continuando al siguiente paso...');
+        });
+        submitButton.addEventListener('click', function() {
+            window.location.href = 'result-sale.html';
+        });
+
+    });
+</script>
+</body>
+</html>
