@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Interface</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header class="header">
+    <div class="header__logo">
+        <img src="img/Logo.png" alt="logo">
+    </div>
+    <div class="header__info">
+        <p class="header__welcome">Bienvenido Juan</p>
+        <span>Ultima sessión:22/03/2021 </span>
+    </div>
+</header>
+
+<main class="account">
+    <div class="acount__amount">
+    <div class="account__balance"><img src="img/piggy-bank.svg" alt="piggy"></div>
+    <div class="account__number">RD$ 53,000.00</div>
+    </div>
+    <div class="acount__amount--inf">
+        <p>Mi cuentica</p>
+        <p>0000517125</p>
+    </div>
+</main>
+
+<div class="actions">
+    <button class="actions__button actions__button--details"><img src="img/message-square-text.svg" alt="detail">Detalles</button>
+    <button class="actions__button actions__button--pay"><img src="img/credit-card.svg" alt="pay">Pagar</button>
+</div>
+
+<ul class="transactions">
+    <li class="transactions__item">
+        <div class="transactions__info">
+            <img src="img/dollar-bill.svg" alt="piggy">
+            <div class="transactions__info--letter">
+            <p>Supermercado Nacional</p>
+            <span class="transactions__date">22/03/2021</span>
+            </div>
+        </div>
+        <div class="transactions__amount">
+            <span class="transactions__amount transactions__amount--negative">-RD$ 1,500.00</span>
+            <span class="arrow">></span>
+        </div>
+    </li>
+    <li class="transactions__item">
+        <div class="transactions__info">
+            <img src="img/dollar-bill.svg" alt="piggy">
+            <div class="transactions__info--letter">
+                <p>Supermercado Nacional</p>
+                <span class="transactions__date">22/03/2021</span>
+            </div>
+        </div>
+        <div class="transactions__amount">
+            <span class="transactions__amount transactions__amount--negative">-RD$ 1,500.00</span>
+            <span class="arrow">></span>
+        </div>
+    </li>
+    <li class="transactions__item">
+        <div class="transactions__info">
+            <img src="img/dollar-bill.svg" alt="piggy">
+            <div class="transactions__info--letter">
+                <p>Supermercado Nacional</p>
+                <span class="transactions__date">22/03/2021</span>
+            </div>
+        </div>
+        <div class="transactions__amount">
+            <span class="transactions__amount transactions__amount">RD$ 1,500.00</span>
+            <span class="arrow">></span>
+        </div>
+    </li>
+    <!-- Add more transaction items as needed -->
+</ul>
+</body>
+</html>
+
