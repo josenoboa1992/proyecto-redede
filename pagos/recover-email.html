@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olvidó su contraseña - ReddePay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="password">
+    <header class="password__header">
+        <a href="index.html" class="password__back">←</a>
+        <img src="img/logo_name.png" alt="ReddePay" class="password__logo">
+    </header>
+
+    <main class="password__main">
+        <h1 class="password__title">¿Olvidó su contraseña?</h1>
+        <p class="password__text">
+            Si te preocupa, a mi también me ha pasado.<br>
+            Por favor, escribe tu dirección de email para enviarte un link.
+        </p>
+
+        <form class="password__form" id="passwordForm">
+            <input type="email" placeholder="email" class="password__input" id="emailInput" required>
+            <button type="submit" class="password__button" id="submitButton" disabled>
+                <span class="password__button-text">Solicitar</span>
+                <span class="password__button-spinner"></span>
+            </button>
+        </form>
+    </main>
+
+    <footer class="login__footer">
+        <span class="login__powered-by">Powered by</span>
+        <img src="img/logo-green.png" alt="Powered by logo" class="login__powered-logo">
+    </footer>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('passwordForm');
+        const emailInput = document.getElementById('emailInput');
+        const submitButton = document.getElementById('submitButton');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        emailInput.addEventListener('input', function() {
+            submitButton.disabled = !validateEmail(this.value);
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitButton.classList.add('password__button--loading');
+            submitButton.disabled = true;
+
+            // Simulate API call
+            setTimeout(function() {
+                submitButton.classList.remove('password__button--loading');
+                // Simulate redirect
+                window.location.href = 'code.html';
+            }, 2000);
+        });
+    });
+</script>
+</body>
+</html>
