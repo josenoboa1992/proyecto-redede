@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuentica</title>
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+<header>
+    <div class="header__menu">
+        <div class="header__menu--arrow"><img src="img/move-left.svg" alt="move-left" srcset=""></div>
+        <div class="header__menu--title"><h2>Detalle de transacción</h2></div>
+        <div class="header__menu--logo"><img src="img/Logo.png" alt="logo"/></div>
+    </div>
+</header>
+<div class="transaction-detail__share">
+    <img src="img/share-2.svg" alt="share"/>
+</div>
+<div class="transaction-detail__content">
+    <div class="receipt-container">
+        <div class="header">
+            <div class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17L4 12" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span class="title">Pago exitoso</span>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Cuenta origen</div>
+            <div class="detail-value">Mi Cuenta *722</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Comercio</div>
+            <div class="detail-value">Supermercado Nacional</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Monto</div>
+            <div class="detail-value amount">RD$ 15,000.00</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Referencia</div>
+            <div class="detail-value">#6520282829123</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="detail-label">Fecha</div>
+            <div class="detail-value">27/10/2021 a las 10:00am</div>
+        </div>
+    </div>
+
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.transaction-detail__tab a');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // Remover la clase activa de todos los tabs y contenido
+                tabs.forEach(t => t.classList.remove('transaction-detail__tab--active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Agregar la clase activa al tab seleccionado
+                tab.classList.add('transaction-detail__tab--active');
+
+                // Mostrar el contenido correspondiente
+                const target = tab.getAttribute('data-tab');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+    });
+</script>
+</body>
+</html>

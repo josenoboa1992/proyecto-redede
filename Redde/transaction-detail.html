@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuentica</title>
+    <link rel="stylesheet" href="css/transacttion-detail.css">
+</head>
+<body>
+<header>
+    <div class="header__menu">
+        <div class="header__menu--arrow"><img src="img/move-left.svg" alt="" srcset=""></div>
+        <div class="header__menu--logo"><img src="img/Logo.png" alt="logo"/></div>
+        <div class="header__menu--card"><img src="img/credit-card-green.svg" alt="card green"></div>
+    </div>
+    <div class="header__info">
+        <p>Mi cuentica</p>
+        <span>Alias</span>
+    </div>
+</header>
+<div class="transaction-detail__tab">
+    <a href="#" data-tab="details" class="transaction-detail__tab--active">Detalles</a>
+    <a href="#" data-tab="transactions">Transacciones</a>
+
+</div>
+
+<div class="transaction-detail__content">
+    <div id="details" class="tab-content active">
+        <div class="transactions">
+            <!-- Detalles del contenido -->
+            <div class="account-details">
+                <div class="account-details__item">
+                    <span class="account-details__label">Estado</span>
+                    <span class="account-details__value">Activa</span>
+                </div>
+                <div class="account-details__item">
+                    <span class="account-details__label">Balance disponible</span>
+                    <span class="account-details__value">RD$ 53,000.00</span>
+                </div>
+                <div class="account-details__item">
+                    <span class="account-details__label">Balance total</span>
+                    <span class="account-details__value">RD$ 55,500.00</span>
+                </div>
+                <div class="account-details__item">
+                    <span class="account-details__label">Número de cuenta</span>
+                    <span class="account-details__value">0013002124822</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="transactions" class="tab-content">
+        <ul class="transactions">
+            <li class="transactions__item" onclick="handleDetailPay()">
+                <div class="transactions__info">
+                    <img src="img/dollar-bill.svg" alt="piggy">
+                    <div class="transactions__info--letter">
+                        <p>Supermercado Nacional</p>
+                        <span class="transactions__date">22/03/2021</span>
+                    </div>
+                </div>
+                <div class="transactions__amount">
+                    <span class="transactions__amount transactions__amount--negative">-RD$ 1,500.00</span>
+                    <span class="arrow"><img src="img/chevron-right.svg" alt="chevron-right"></span>
+                </div>
+            </li>
+            <li class="transactions__item" onclick="handleDetailPay()">
+                <div class="transactions__info">
+                    <img src="img/dollar-bill.svg" alt="piggy">
+                    <div class="transactions__info--letter">
+                        <p>Supermercado Nacional</p>
+                        <span class="transactions__date">22/03/2021</span>
+                    </div>
+                </div>
+                <div class="transactions__amount">
+                    <span class="transactions__amount transactions__amount--negative">-RD$ 1,500.00</span>
+                    <span class="arrow"><img src="img/chevron-right.svg" alt="chevron-right"></span>
+                </div>
+            </li>
+            <li class="transactions__item" onclick="handleDetailPay()">
+                <div class="transactions__info">
+                    <img src="img/dollar-bill.svg" alt="piggy">
+                    <div class="transactions__info--letter">
+                        <p>Supermercado Nacional</p>
+                        <span class="transactions__date">22/03/2021</span>
+                    </div>
+                </div>
+                <div class="transactions__amount">
+                    <span class="transactions__amount transactions__amount">RD$ 1,500.00</span>
+                    <span class="arrow"><img src="img/chevron-right.svg" alt="chevron-right"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.transaction-detail__tab a');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // Remover la clase activa de todos los tabs y contenido
+                tabs.forEach(t => t.classList.remove('transaction-detail__tab--active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Agregar la clase activa al tab seleccionado
+                tab.classList.add('transaction-detail__tab--active');
+
+                // Mostrar el contenido correspondiente
+                const target = tab.getAttribute('data-tab');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+    });
+    const handleDetailPay = () => {
+        window.location.href="transaction-detail-payment.html"
+    }
+
+</script>
+</body>
+</html>

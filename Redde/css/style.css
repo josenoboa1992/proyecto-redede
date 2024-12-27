@@ -100,7 +100,7 @@ body {
 }
 
 .actions__button--details img, .actions__button--pay img{
-    width: 20px;
+    width: 15px;
 }
 
 .transactions {
@@ -116,16 +116,22 @@ body {
     cursor: pointer;
 }
 
+.transactions__info--letter {
+    font-size: 14px;
+}
+
 .transactions__date {
     color: #a0a0a0;
 }
 
 .transactions__amount {
     font-weight: 500;
+    font-size: 14px;
 }
 
 .transactions__amount--negative {
     color: #ff4444;
+    font-size: 14px;
 }
 .transactions__info {
     display: flex;

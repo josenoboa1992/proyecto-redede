@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: 200px;
+    background-image: url("../img/card.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem;
+
+}
+.header__info {
+    color: white;
+    margin-bottom: 30px;
+}
+.header__menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__menu .header__menu--arrow {
+    color: #33b35a;
+}
+
+.header__menu img {
+    width: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header__info {
+    color: white;
+}
+
+.transaction-detail__tab {
+    position: relative;
+    top: -23px;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.transaction-detail__tab a {
+    border: none;
+    padding: 1rem;
+    width: 120px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+
+}
+
+.transaction-detail__tab .transaction-detail__tab--active {
+    color: #FFF;
+    background-color: #33b35a;
+    font-weight: bold;
+}
+
+.transactions {
+    list-style: none;
+    padding: 1rem;
+}
+
+.transactions__item {
+    padding: 16px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.transactions__date {
+    color: #a0a0a0;
+}
+
+.transactions__amount {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5.2px;
+
+}
+
+.transactions__amount--negative {
+    color: #ff4444;
+}
+.transactions__info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.transactions__info img{
+    width: 40px;
+    border: 1px solid #002456;
+    padding: 10px;
+    border-radius: 50%;
+}
+.transactions__amount .arrow{
+    color: #002456;
+    font-weight: bold;
+}
+
+.transactions__item:hover{
+    background-color: #eaeaea;
+}
+
+.arrow{
+    color: #002456;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+.account-details {
+    background: #ffffff;
+    padding: 20px;
+    width: 400px;
+}
+
+.account-details__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.account-details__item:last-child {
+    border-bottom: none;
+}
+
+.account-details__label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.account-details__value {
+    font-size: 14px;
+    font-weight: bold;
+    color: #0056b3;
+}

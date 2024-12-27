@@ -30,13 +30,13 @@
 </main>
 
 <div class="actions">
-    <button class="actions__button actions__button--details"><img src="img/message-square-text.svg" alt="detail">Detalles</button>
+    <button class="actions__button actions__button--details" onclick="handleDetail()"><img src="img/message-square-text.svg" alt="detail">Detalles</button>
     <button class="actions__button actions__button--pay"><img src="img/credit-card.svg" alt="pay">Pagar</button>
 </div>
 
 <ul class="transactions">
-    <li class="transactions__item">
-        <div class="transactions__info">
+    <li class="transactions__item" onclick="handleDetailPay()">
+        <div class="transactions__info" onclick="handleDetailPay()">
             <img src="img/dollar-bill.svg" alt="piggy">
             <div class="transactions__info--letter">
             <p>Supermercado Nacional</p>
@@ -48,8 +48,8 @@
             <span class="arrow">></span>
         </div>
     </li>
-    <li class="transactions__item">
-        <div class="transactions__info">
+    <li class="transactions__item" onclick="handleDetailPay()" >
+        <div class="transactions__info" onclick="handleDetailPay()">
             <img src="img/dollar-bill.svg" alt="piggy">
             <div class="transactions__info--letter">
                 <p>Supermercado Nacional</p>
@@ -61,7 +61,7 @@
             <span class="arrow">></span>
         </div>
     </li>
-    <li class="transactions__item">
+    <li class="transactions__item" onclick="handleDetailPay()">
         <div class="transactions__info">
             <img src="img/dollar-bill.svg" alt="piggy">
             <div class="transactions__info--letter">
@@ -76,6 +76,15 @@
     </li>
     <!-- Add more transaction items as needed -->
 </ul>
+<script>
+    const handleDetail=()=>{
+        window.location.href="transaction-detail.html"
+    }
+
+    const handleDetailPay = () => {
+      window.location.href="transaction-detail-payment.html"
+    }
+</script>
 </body>
 </html>
 
