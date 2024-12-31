@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Verification Block */
+.verification {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.verification__text {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.verification__email {
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.verification__dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.verification__dot {
+    width: 40px;
+    height: 40px;
+    background-color: #E5E5E5;
+    border-radius: 17%;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    color: var(--bg-dark);
+}
+
+.verification__dot--filled {
+    background-color: #333;
+}
+
+.verification__resend {
+    color: #333;
+    font-size: 14px;
+}
+
+.verification__link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Keypad Block */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 0 74px;
+    margin-top: auto;
+}
+
+.keypad__key {
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: #333;
+    padding: 0px;
+    cursor: pointer;
+    border-radius: 19%;
+    aspect-ratio: 1;
+    transition: background-color 0.2s ease;
+    width: 47px;
+    height: 37px;
+}
+
+.keypad__key:hover {
+    background-color: #f5f5f5;
+}
+
+.keypad__key--back {
+    font-size: 20px;
+}
+
+.keypad__key--confirm {
+    background-color: #30c7d6;
+    color: white;
+}
+
+.keypad__key--confirm:hover {
+    background-color: #25b7c5;
+}
+
+/* Footer Block */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 40px;
+}
+
+.footer__text {
+    color: #333;
+    font-size: 14px;
+}
+
+.footer__logo {
+    height: 20px;
+}
+
+.login__powered-by {
+    font-size: 0.85rem;
+    color: #49bb6c;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container__logo-wrapper {
+    text-align: center;
+    margin: 20px 0 40px;
+}
+.password__back {
+    position: absolute;
+    left: 20px;
+    text-decoration: none;
+    color: #000;
+    font-size: 24px;
+}
+
+.login__footer {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    bottom: 0;
+}

@@ -1,0 +1,76 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* BEM Components */
+.password-saved {
+    min-height: 100vh;
+    background-color: #00205B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-saved__container {
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+}
+
+.password-saved__icon {
+    margin-bottom: 1.5rem;
+}
+
+.password-saved__lock {
+    color: white;
+}
+
+.password-saved__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.password-saved__dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.password-saved__title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.password-saved__message {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .password-saved__container {
+        padding: 1.5rem;
+    }
+
+    .password-saved__title {
+        font-size: 1.25rem;
+    }
+
+    .password-saved__message {
+        font-size: 0.875rem;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido</title>
+  <link rel="stylesheet" href="css/welcome.css">
+</head>
+<body>
+<div class="container">
+  <!-- Icono Home -->
+  <a href="#" class="home-icon">
+    <img src="img/logo.png" alt="Inicio" width="24" height="24">
+  </a>
+
+  <!-- Contenido Principal -->
+  <div class="content">
+    <!-- Ilustración Isométrica -->
+    <div class="illustration">
+      <img src="img/fact.png" alt="Ilustración" width="280" height="280">
+    </div>
+
+    <!-- Texto -->
+    <div class="text-content">
+      <h1>Bienvenido</h1>
+      <p class="main-text">
+        Vermos que es la <span class="highlight">primera vez</span> que ingresa a la aplicación. Necesitamos <span class="white">verificar</span> su cuenta antes de continuar.
+      </p>
+      <p class="sub-text">
+        Tranquilo, esto será rápido.
+      </p>
+    </div>
+
+    <!-- Botón Continuar -->
+    <button id="continueBtn">Continuar</button>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Referencia al botón
+    const continueBtn = document.getElementById('continueBtn');
+
+    // Evento click del botón
+    continueBtn.addEventListener('click', function() {
+      window.location.href='transaction.html'
+
+      this.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        this.style.transform = 'scale(1)';
+      }, 100);
+    });
+
+    const homeIcon = document.querySelector('.home-icon');
+    homeIcon.addEventListener('mouseover', function() {
+      this.querySelector('img').style.transform = 'scale(1.1)';
+    });
+
+    homeIcon.addEventListener('mouseout', function() {
+      this.querySelector('img').style.transform = 'scale(1)';
+    });
+  });
+</script>
+</body>
+</html>

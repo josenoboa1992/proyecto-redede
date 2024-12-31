@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #001B3D;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+}
+
+.home-icon {
+    position: absolute;
+    top: -48px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -48px;
+}
+
+.illustration {
+    width: 280px;
+    margin-bottom: 32px;
+}
+
+.illustration svg {
+    width: 100%;
+    height: auto;
+}
+
+.text-content {
+    color: white;
+    margin-bottom: 48px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.main-text {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.8;
+    margin-bottom: 16px;
+}
+
+.sub-text {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.highlight {
+    color: #4CAF50;
+}
+
+.white {
+    color: white;
+    opacity: 1;
+}
+
+button {
+    width: 100%;
+    background-color: #33b35a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 16px;
+    }
+
+    .illustration {
+        width: 240px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .main-text {
+        font-size: 13px;
+    }
+
+    .sub-text {
+        font-size: 11px;
+    }
+}

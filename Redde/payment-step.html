@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Flow</title>
+  <link rel="stylesheet" href="css/payment-step.css">
+
+  <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="header__menu">
+    <div class="header__menu--arrow" onclick="handleBack()"><img src="img/chevron-left.svg" alt="move-left" srcset=""></div>
+    <div class="header__menu--title"><h2>Relizar pago</h2></div>
+    <div class="header__menu--logo"><img src="img/Logo.png" alt="logo"/></div>
+  </div>
+</header>
+<div class="container">
+  <div class="progress-section">
+    <div class="progress-bar">
+      <div class="progress-dot"></div>
+      <div class="progress-line" id="progressLine"></div>
+    </div>
+      <p class="progress-text" id="progressText">Escanear código</p>
+  </div>
+
+  <!-- Step 1: QR Scanner -->
+  <div class="step active" id="step1">
+    <div class="qr-container" id="qrContainer" onclick="handleQRClick()">
+      <div id="qrcode"></div>
+    </div>
+  </div>
+
+  <!-- Step 2: Payment Form -->
+  <div class="step" id="step2">
+    <div class="form-group">
+      <label>Cuenta de origen</label>
+      <p>Mi cuenta **22</p>
+    </div>
+    <div class="form-group">
+      <label>Comercio</label>
+      <p>Supermercado Nacional</p>
+    </div>
+    <div class="form-group">
+      <label>Monto</label>
+      <input type="number" id="amount" placeholder="$">
+    </div>
+    <button class="button" onclick="nextStep()">Pagar</button>
+  </div>
+
+  <!-- Step 3: Success -->
+  <div class="step" id="step3">
+    <div class="success-card">
+      <div class="transaction-detail__share">
+        <img src="img/share-2.svg" alt="share"/>
+      </div>
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 6L9 17L4 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2 style="text-align: center; margin-bottom: 20px;">Pago exitoso</h2>
+      <div class="success-details">
+        <p><span>Cuenta de origen</span> <span>Mi cuenta **22</span></p>
+        <p><span>Comercio</span> <span>Supermercado Nacional</span></p>
+        <p><span>Monto</span> <span id="finalAmount">RD$ 0.00</span></p>
+        <p><span>Referencia</span> <span>REF2024282929123</span></p>
+        <p><span>Fecha</span> <span>21/12/2023 a las 10:00am</span></p>
+      </div>
+    </div>
+    <button class="button" onclick="finishProcess()">Finalizar</button>
+  </div>
+</div>
+
+<script>
+  let currentStep = 1;
+  const totalSteps = 3;
+
+  function updateProgress() {
+    const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+    document.getElementById('progressLine').style.width = `${progress}%`;
+
+    const progressTexts = ['Escanear código', 'Completar datos', 'Resumen'];
+    document.getElementById('progressText').textContent = progressTexts[currentStep - 1];
+  }
+
+  function showStep(step) {
+    document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+    document.getElementById(`step${step}`).classList.add('active');
+    currentStep = step;
+    updateProgress();
+  }
+
+  function handleQRClick() {
+    const qrContainer = document.getElementById('qrContainer');
+    qrContainer.style.transform = 'scale(0.95)';
+
+    setTimeout(() => {
+      qrContainer.style.transform = '';
+      showStep(2);
+    }, 150);
+  }
+
+  function nextStep() {
+    if (currentStep === 2) {
+      const amount = document.getElementById('amount').value;
+      if (!amount) {
+        alert('Por favor ingrese un monto');
+        return;
+      }
+      document.getElementById('finalAmount').textContent = `RD$ ${parseFloat(amount).toFixed(2)}`;
+    }
+
+    if (currentStep < totalSteps) {
+      showStep(currentStep + 1);
+    }
+  }
+
+  function finishProcess() {
+   window.location.href="transaction.html";
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Create a QR code with sample data
+    const qrcode = new QRCode(document.getElementById("qrcode"), {
+      text: "https://ejemplo.com/producto/123",
+      width: 256,
+      height: 256,
+      colorDark : "#2D3748",
+      colorLight : "#FFFFFF",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+
+    // Handle the continue button
+    const submitButton = document.getElementById('continue-btn');
+    submitButton.addEventListener('click', function() {
+      console.log('Continuando al siguiente paso...');
+      showStep(2);
+    });
+  });
+
+  const handleBack=()=>{
+    window.location.href="transaction.html";
+  }
+</script>
+</body>
+</html>
+

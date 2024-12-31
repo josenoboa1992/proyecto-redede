@@ -1,0 +1,197 @@
+:root {
+    --primary-color: #33b35a;
+    --background-color: #FFF;
+    --text-color: #000;
+    --error-color: #33b35a;
+    --success-color: #1DB954;
+    --disabled-color: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    background-image: url("../img/card.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem;
+
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #E5E7EB;
+    margin-bottom: 20px;
+}
+
+.header__info {
+    color: white;
+    margin-bottom: 30px;
+}
+.header__menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__menu .header__menu--arrow {
+    color: #33b35a;
+}
+
+.header__menu img {
+    width: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header__menu--title{
+    color: white;
+    font-weight: bold;
+}
+
+.header__menu--title h2 {
+    font-size: 16px;
+    color:#FFFFFF;
+}
+
+.header__info {
+    color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.requirements {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.requirement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.requirement.valid {
+    color: var(--success-color);
+}
+
+.requirement .icon {
+    font-size: 1rem;
+    opacity: 0.3; /* Make unchecked icons more subtle */
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.requirement.valid .icon {
+    opacity: 1;
+    color: var(--success-color);
+}
+
+.input-group {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    padding: 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+button:disabled {
+    background-color: var(--disabled-color);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.error input {
+    border-color: var(--error-color);
+}
+
+@media (hover: hover) {
+    button:not(:disabled):hover {
+        opacity: 0.9;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 16px;
+    }
+
+    input {
+        padding: 10px;
+    }
+
+    button {
+        padding: 12px;
+    }
+}
+button#submitBtn {
+    color: #FFF;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario</title>
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body class="page">
+<div class="profile">
+  <header class="profile__header">
+    <div class="logo">
+      <img src="img/logo.png" alt="logo">
+    </div>
+    <div class="profile__avatar">
+      <img class="profile__avatar-image" src="img/pefil.png" alt="Foto de perfil">
+    </div>
+  </header>
+
+  <div class="profile__info">
+    <h1 class="profile__name">Juan Coronado</h1>
+    <p class="profile__last-access">Último acceso: 22/12/2023 a las 04:00 PM</p>
+  </div>
+
+  <div class="profile__menu">
+    <button class="profile__menu-item" onclick="handleChangePass()">
+      <div class="profile__menu-item-content">
+        <div class="profile__menu-icon profile__menu-icon--lock"></div>
+        <span class="profile__menu-text">Cambiar contraseña</span>
+      </div>
+      <div class="profile__menu-icon profile__menu-icon--chevron"></div>
+    </button>
+
+    <button class="profile__menu-item" onclick="handleLogin()">
+      <div class="profile__menu-item-content">
+        <div class="profile__menu-icon profile__menu-icon--lock"></div>
+        <span class="profile__menu-text">Cerrar sesión</span>
+      </div>
+      <div class="profile__menu-icon profile__menu-icon--chevron"></div>
+    </button>
+  </div>
+</div>
+<script>
+  // Añadir interactividad a los botones
+  document.querySelectorAll('.profile__menu-item').forEach(button => {
+    button.addEventListener('click', function() {
+      const text = this.querySelector('.profile__menu-text').textContent;
+      if (text === 'Cambiar contraseña') {
+        console.log('Cambiar contraseña clicked');
+        // Añade aquí la lógica para cambiar contraseña
+      } else if (text === 'Cerrar sesión') {
+        console.log('Cerrar sesión clicked');
+        // Añade aquí la lógica para cerrar sesión
+      }
+    });
+  });
+
+  // Función para actualizar la hora del último acceso
+  function updateLastAccess() {
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('es-ES');
+    const formattedTime = now.toLocaleTimeString('es-ES', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    const lastAccessText = `Último acceso: ${formattedDate} a las ${formattedTime}`;
+    document.querySelector('.profile__last-access').textContent = lastAccessText;
+  }
+
+  const handleChangePass=()=>{
+    window.location.href="change.html"
+  }
+
+  const handleLogin=()=>{
+    window.location.href="index.html"
+  }
+  // Actualizar la hora al cargar la página
+  updateLastAccess();
+</script>
+</body>
+</html>

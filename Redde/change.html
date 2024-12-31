@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Contraseña</title>
+  <link rel="stylesheet" href="css/change.css">
+</head>
+<body>
+<header>
+  <div class="header__menu">
+    <div class="header__menu--arrow"></div>
+    <div class="header__menu--title"><h2>Cambiar contraseña</h2></div>
+    <div class="header__menu--logo"><img src="img/logo.png" alt="logo"/></div>
+  </div>
+</header>
+<div class="container">
+  <form id="passwordForm" novalidate>
+    <h2>Asegúrese de que tu contraseña contenga</h2>
+
+    <div class="requirements">
+      <div class="requirement" id="length">
+        <span class="icon">✓</span>
+        <span>Mínimo 8 caracteres</span>
+      </div>
+      <div class="requirement" id="uppercase">
+        <span class="icon">✓</span>
+        <span>Al menos 1 letra mayúscula</span>
+      </div>
+      <div class="requirement" id="number">
+        <span class="icon">✓</span>
+        <span>Al menos 1 número</span>
+      </div>
+      <div class="requirement" id="special">
+        <span class="icon">✓</span>
+        <span>Al menos 1 carácter especial</span>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Nueva contraseña" required>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required>
+    </div>
+
+    <button type="submit" id="submitBtn" disabled>Guardar</button>
+  </form>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('passwordForm');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Requirements elements
+    const requirements = {
+      length: document.getElementById('length'),
+      uppercase: document.getElementById('uppercase'),
+      number: document.getElementById('number'),
+      special: document.getElementById('special')
+    };
+
+    // Validation patterns
+    const patterns = {
+      length: (password) => password.length >= 8,
+      uppercase: (password) => /[A-Z]/.test(password),
+      number: (password) => /[0-9]/.test(password),
+      special: (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password)
+    };
+
+    function validatePassword(password) {
+      let isValid = true;
+
+      // Check each requirement
+      Object.keys(patterns).forEach(pattern => {
+        const meetsRequirement = patterns[pattern](password);
+        requirements[pattern].classList.toggle('valid', meetsRequirement);
+        if (!meetsRequirement) isValid = false;
+      });
+
+      return isValid;
+    }
+
+    function updateSubmitButton() {
+      const password = passwordInput.value;
+      const confirmPassword = confirmPasswordInput.value;
+      const isValidPassword = validatePassword(password);
+      const passwordsMatch = password === confirmPassword && confirmPassword !== '';
+
+      submitBtn.disabled = !(isValidPassword && passwordsMatch);
+    }
+
+    // Event listeners
+    passwordInput.addEventListener('input', () => {
+      validatePassword(passwordInput.value);
+      updateSubmitButton();
+    });
+
+    confirmPasswordInput.addEventListener('input', updateSubmitButton);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (submitBtn.disabled) return;
+
+      // Here you would typically send the password to your server
+      console.log('Contraseña válida enviada');
+      window.location.href="password-save.html"
+      // Reset form
+      form.reset();
+      Object.values(requirements).forEach(req => req.classList.remove('valid'));
+      submitBtn.disabled = true;
+    });
+  });
+
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olvidó su contraseña - ReddePay</title>
+    <link rel="stylesheet" href="css/code.css">
+</head>
+<body>
+<div class="container">
+    <a href="recover-email.html" class="password__back">←</a>
+
+    <div class="container__logo-wrapper">
+        <img src="img/logo_name.png" alt="REDDEPAY" class="container__logo">
+    </div>
+
+    <div class="verification">
+        <p class="verification__text">Introduce el código que enviamos a tu correo:</p>
+        <p class="verification__email">j***@***.com</p>
+
+        <div class="verification__dots">
+            <div class="verification__dot"></div>
+            <div class="verification__dot"></div>
+            <div class="verification__dot"></div>
+            <div class="verification__dot"></div>
+        </div>
+
+        <p class="verification__resend">
+            ¿No has recibido el código? <a href="#" class="verification__link">Reenviar código</a>
+        </p>
+    </div>
+
+    <div class="keypad">
+        <button class="keypad__key">1</button>
+        <button class="keypad__key">2</button>
+        <button class="keypad__key">3</button>
+        <button class="keypad__key">4</button>
+        <button class="keypad__key">5</button>
+        <button class="keypad__key">6</button>
+        <button class="keypad__key">7</button>
+        <button class="keypad__key">8</button>
+        <button class="keypad__key">9</button>
+        <button class="keypad__key keypad__key--back">&lt;</button>
+        <button class="keypad__key">0</button>
+        <button class="keypad__key keypad__key--confirm" onclick="handleChangePass()">✓</button>
+    </div>
+
+    <footer class="login__footer">
+        <span class="login__powered-by">Powered by</span>
+        <img src="img/logo-green.png" alt="Powered by logo" class="login__powered-logo">
+    </footer>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const dots = document.querySelectorAll('.verification__dot'); // Selección de puntos
+        const keys = document.querySelectorAll('.keypad__key'); // Selección de botones
+        let code = '';
+        const maxLength = 4;
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                if (index < code.length) {
+                    dot.textContent = code[index]; // Muestra el número
+                } else {
+                    dot.textContent = ''; // Limpia el contenido si no hay número
+                }
+            });
+        }
+
+        keys.forEach(key => {
+            key.addEventListener('click', () => {
+                // Manejo de retroceso
+                if (key.classList.contains('keypad__key--back')) {
+                    code = code.slice(0, -1);
+                    updateDots();
+                    return;
+                }
+
+                // Manejo de confirmación
+                if (key.classList.contains('keypad__key--confirm')) {
+                    if (code.length === maxLength) {
+                        console.log('Código ingresado:', code);
+
+                        // Lógica adicional aquí
+                    } else {
+                        alert('Por favor, completa el código.');
+                    }
+                    return;
+                }
+
+                // Manejo de entrada numérica
+                if (code.length < maxLength) {
+                    const number = key.textContent;
+                    if (!isNaN(number)) {
+                        code += number;
+                        updateDots();
+                    }
+                }
+            });
+        });
+
+        // Evitar selección de texto en doble clic
+        document.addEventListener('mousedown', (e) => {
+            if (e.detail > 1) {
+                e.preventDefault();
+            }
+        });
+    });
+    const handleChangePass=()=>{
+        window.location.href="change.html"
+    }
+
+</script>
+</body>
+</html>

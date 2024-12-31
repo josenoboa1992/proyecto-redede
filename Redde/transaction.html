@@ -31,7 +31,7 @@
 
 <div class="actions">
     <button class="actions__button actions__button--details" onclick="handleDetail()"><img src="img/message-square-text.svg" alt="detail">Detalles</button>
-    <button class="actions__button actions__button--pay"><img src="img/credit-card.svg" alt="pay">Pagar</button>
+    <button class="actions__button actions__button--pay" onclick="handlePayment()"><img src="img/credit-card.svg" alt="pay">Pagar</button>
 </div>
 
 <ul class="transactions">
@@ -45,7 +45,7 @@
         </div>
         <div class="transactions__amount">
             <span class="transactions__amount transactions__amount--negative">-RD$ 1,500.00</span>
-            <span class="arrow">></span>
+            <span class="arrow"><img src="img/chevron-right.svg" alt="chevron-right"/></span>
         </div>
     </li>
     <li class="transactions__item" onclick="handleDetailPay()" >
@@ -58,7 +58,7 @@
         </div>
         <div class="transactions__amount">
             <span class="transactions__amount transactions__amount--negative">-RD$ 1,500.00</span>
-            <span class="arrow">></span>
+            <span class="arrow"><img src="img/chevron-right.svg" alt="chevron-right"/></span>
         </div>
     </li>
     <li class="transactions__item" onclick="handleDetailPay()">
@@ -71,7 +71,7 @@
         </div>
         <div class="transactions__amount">
             <span class="transactions__amount transactions__amount">RD$ 1,500.00</span>
-            <span class="arrow">></span>
+            <span class="arrow"><img src="img/chevron-right.svg" alt="chevron-right"/></span>
         </div>
     </li>
     <!-- Add more transaction items as needed -->
@@ -83,6 +83,10 @@
 
     const handleDetailPay = () => {
       window.location.href="transaction-detail-payment.html"
+    }
+
+    const handlePayment=()=>{
+        window.location.href="payment-step.html";
     }
 </script>
 </body>

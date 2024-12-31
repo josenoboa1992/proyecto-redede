@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #FFF;
+    min-height: 100vh;
+    color:#000;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    background-image: url("../img/card.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem;
+
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #E5E7EB;
+    margin-bottom: 20px;
+}
+
+.header__info {
+    color: white;
+    margin-bottom: 30px;
+}
+.header__menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__menu .header__menu--arrow {
+    color: #33b35a;
+}
+
+.header__menu img {
+    width: 25px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header__menu--title{
+    color: white;
+    font-weight: bold;
+}
+
+.header__menu--title h2 {
+    font-size: 16px;
+}
+
+.header__info {
+    color: white;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Progress Bar Styles */
+.progress-section {
+    margin-bottom: 40px;
+}
+
+.progress-bar {
+    position: relative;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.progress-dot {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+.progress-line {
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Step Specific Styles */
+.step {
+    display: none;
+}
+.step span{
+    color: #000;
+}
+.step.active {
+    display: block;
+}
+
+/* QR Scanner Styles */
+.qr-container {
+    background-color: rgba(245, 245, 245, 0.46);
+    width: 230px;
+    height: 230px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer; /* Add cursor pointer to indicate clickable */
+    transition: transform 0.2s ease; /* Add smooth transform on hover */
+}
+
+.qr-container:hover {
+    transform: scale(1.02); /* Slight scale up on hover */
+}
+
+.qr-container:active {
+    transform: scale(0.98); /* Slight scale down on click */
+}
+
+.qr-container img {
+    width: 150px;
+}
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0);
+    background: transparent;
+    color: white;
+    outline: none;
+
+}
+
+/* Success Card Styles */
+.success-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.success-icon {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.success-details {
+    border-top: 1px dashed #ddd;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.success-details p {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Button Styles */
+.button {
+    width: 90%;
+    padding: 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    bottom: 8px !important;
+    position: absolute;
+}
+
+.button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+.success-icon{
+    text-align: center;
+}
+.success-icon svg{
+    background-color: #E5F6F3;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color:#00A884;
+    padding: 10px;
+}
+
+.transaction-detail__share {
+    position: absolute;
+    right: 10%;
+}
