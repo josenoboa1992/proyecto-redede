@@ -48,7 +48,7 @@ function formatDate(dateString) {
 function renderTransactions(transactionsToRender = transactions) {
     const transactionsContainer = document.getElementById('transactions');
     transactionsContainer.innerHTML = transactionsToRender.map(transaction => `
-<a href="../transaction-detail.html">
+<a href="/pagos/transaction-detail.html">
         <article class="transaction">
             <div class="transaction__info">
                 <p class="transaction__title">${transaction.title}</p>
