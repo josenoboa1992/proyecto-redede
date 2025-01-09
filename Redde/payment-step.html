@@ -30,6 +30,7 @@
     <div class="qr-container" id="qrContainer" onclick="handleQRClick()">
       <div id="qrcode"></div>
     </div>
+    <button class="button" onclick="nextStep()">Continuar</button>
   </div>
 
   <!-- Step 2: Payment Form -->
@@ -46,7 +47,7 @@
       <label>Monto</label>
       <input type="number" id="amount" placeholder="$">
     </div>
-    <button class="button" onclick="nextStep()">Pagar</button>
+    <button class="button" onclick="nextStep()">Continuar</button>
   </div>
 
   <!-- Step 3: Success -->
@@ -62,11 +63,11 @@
       </div>
       <h2 style="text-align: center; margin-bottom: 20px;">Pago exitoso</h2>
       <div class="success-details">
-        <p><span>Cuenta de origen</span> <span>Mi cuenta **22</span></p>
-        <p><span>Comercio</span> <span>Supermercado Nacional</span></p>
-        <p><span>Monto</span> <span id="finalAmount">RD$ 0.00</span></p>
-        <p><span>Referencia</span> <span>REF2024282929123</span></p>
-        <p><span>Fecha</span> <span>21/12/2023 a las 10:00am</span></p>
+        <p>Cuenta de origen <span>Mi cuenta **22</span></p>
+        <p>Comercio <span>Supermercado Nacional</span></p>
+        <p>Monto <span id="finalAmount">RD$ 0.00</span></p>
+        <p>Referencia <span>REF2024282929123</span></p>
+        <p>Fecha <span>21/12/2023 a las 10:00am</span></p>
       </div>
     </div>
     <button class="button" onclick="finishProcess()">Finalizar</button>

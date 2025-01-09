@@ -42,7 +42,7 @@
         <button class="keypad__key">9</button>
         <button class="keypad__key keypad__key--back">&lt;</button>
         <button class="keypad__key">0</button>
-        <button class="keypad__key keypad__key--confirm">✓</button>
+        <button class="keypad__key keypad__key--confirm" onclick="handleSave()">✓</button>
     </div>
 
     <footer class="login__footer">
@@ -105,6 +105,10 @@
             }
         });
     });
+
+    const handleSave=()=>{
+        window.location.href="change.html";
+    }
 </script>
 </body>
 </html>
